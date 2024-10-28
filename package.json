@@ -1,0 +1,17 @@
+{
+  "name": "wa-vj",
+  "version": "1.0.0",
+  "description": "wa vjezbe",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Lucia Labinjan",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  }
+}
