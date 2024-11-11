@@ -1,4 +1,5 @@
 import express from 'express';
+import { nekretnine } from './nekretnine.js';
 const router = express.Router();
 
 const ponude=[];
@@ -32,7 +33,7 @@ if (!id || !ime|| !prezime || ponudena_cijena == null || !broj_telefona) {
     return res.status(400).json({ message: "Unesite sve podatke" });
 }
 
-const postoji_nekretnina = nekretnine.some(nekretnina => nekretnina.id === id_nekretnine);
+const postoji_nekretnina = nekretnine.some(nekretnina => nekretnina.id === id);
     if (!postoji_nekretnina) {
         return res.status(404).json({ message: "Nekretnina s traženim ID-em ne postoji." });
     }
@@ -41,20 +42,20 @@ if (typeof ponudena_cijena !== 'number' || ponudena_cijena < 0) {
     return res.status(400).json({ message: "Ponudena cijena mora biti pozitivan broj." });
 }
 if (typeof ime !== 'string' || typeof prezime !== 'string') {
-    return res.status(400).json({ message: "Ime i prezime moraju biti u obliku podaci." });
+    return res.status(400).json({ message: "Ime i prezime moraju biti string." });
 }
 
 
     const nova_ponuda = {
         id: ponude.length + 1,
-        id,
+        id_nekretnine:id,
         ime,
         prezime,
         ponudena_cijena,
         broj_telefona
     };
     ponude.push(nova_ponuda);
-
+    res.status(201).json(nova_ponuda);
 });
 
 export default router;

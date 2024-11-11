@@ -2,7 +2,7 @@ import express from 'express';
 const router = express.Router();
 
 
-const nekretnine = [
+export const nekretnine = [
 {id:1,naziv:"Kuca_s_bazenom",opis:"Kuca u uvali s bazenom", cijena:50000,lokacija:"Medulin",broj_soba:4,povrsina:3000},
 {id:2,naziv:"Kuca_kraj_mora",opis:"Kuca 500m od mora", cijena:100000,lokacija:"Stinjan",broj_soba:3,povrsina:2000},
 {id:3,naziv:"Kuca_u_centru",opis:"Kuca u centru grada", cijena:30000,lokacija:"Medulin",broj_soba:2,povrsina:200}
@@ -60,7 +60,35 @@ router.post('/nekretnine', (req, res) => {
     nekretnine.push(nova_nekretnina);
     res.status(201).json(nova_nekretnina);
 });
-      
+router.put('/nekretnine/:id', (req, res) => {
+    const id_nekretnina = req.params.id;
+    const nova_nekretnina = req.body;
+    const index = nekretnine.findIndex(nekretnina => nekretnina.id == id_nekretnina);
+
+    if (index !== -1) {
+        
+        nekretnine[index] = { id: id_nekretnina, ...nova_nekretnina };
+        res.json(nekretnine[index]);
+    } else {
+        res.json({ message: 'Nekretnina s traženim ID-em ne postoji.' });
+    }
+});
+router.patch('/nekretnine/:id', (req, res) => {
+    const id_nekretnina = req.params.id;
+    const nova_nekretnina = req.body;
+    const index = nekretnine.findIndex(nekretnina => nekretnina.id == id_nekretnina);
+
+    if (index !== -1) {
+       
+        for (const key in nova_nekretnina) {
+            nekretnine[index][key] = nova_nekretnina[key];
+        }
+       
+        res.json(nekretnine[index]);
+    } else {
+        res.json({ message: 'Nekretnina s traženim ID-em ne postoji.' });
+    }
+});
 router.delete('/nekretnine/:id', (req, res) => {
     const id_nekretnina = parseInt(req.params.id); 
     const index = nekretnine.findIndex(nekretnina => nekretnina.id === id_nekretnina);
