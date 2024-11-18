@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import Proizvodi from '@/views/Proizvodi.vue';
-import ProizvodDetalji from '@/views/ProizvodDetalji.vue';
+import Proizvodi from "../components/Proizvodi.vue";
+import Proizvod from "../components/Proizvod.vue";
 
 const routes = [
   {
@@ -9,10 +9,11 @@ const routes = [
     component: Proizvodi, 
   },
   {
-    path: '/proizvodi/:id',
-    name: 'ProizvodDetalji',
-    component: ProizvodDetalji, 
-    props: true, 
+    path: '/proizvod/:id',
+    name: 'proizvod',
+    component: Proizvod, 
+    props: true,
+    
   },
   {
     path: '/',

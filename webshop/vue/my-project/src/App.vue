@@ -1,10 +1,14 @@
 <template>
   <div>
   
-  <ProizvodiVue />
+    <router-view></router-view>
   </div>
   </template>
   <script setup>
-  import ProizvodiVue from './components/proizvodi.vue';
   </script>
+  <style>
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+</style>
 

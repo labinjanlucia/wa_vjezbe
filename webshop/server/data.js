@@ -1,21 +1,32 @@
 class Proizvod {
-    constructor(id, naziv, cijena, velicine, opis, slike) {
+    constructor(id, naziv, cijena, velicine, opis, slike,boje,karakteristike) {
     this.id = id;
     this.naziv = naziv;
     this.cijena = cijena;
     this.velicine = velicine;
     this.opis = opis;
     this.slike = slike;
+    this.boje=boje;
+    this.karakteristike=karakteristike;
+
     }
     }
     const proizvodi = [
     new Proizvod(1, 'Obična crna majica', 80, ['XS', 'S', 'M', 'L'],"majca od 100% pamuka",[,
         "https://kerrits.com/cdn/shop/files/ICe-Fil-Long-Sleeve-Black_57b36ad5-151a-4571-9f8a-0c730ccddf29.jpg?v=1704400320","https://www.willowequestrian.com/cdn/shop/products/image_1cc0452e-974f-4a8b-aa6a-c108e74960b7.jpg?v=1720567334&width=960",
-        "https://media.fundis.net/media/image/32/b3/97/equestrian-stockholm_damenshirt_black-gold.jpg","https://kerrits.com/cdn/shop/files/ICe-Fil-Long-Sleeve-Black_57b36ad5-151a-4571-9f8a-0c730ccddf29.jpg?v=1704400320s"]), 
+        "https://media.fundis.net/media/image/32/b3/97/equestrian-stockholm_damenshirt_black-gold.jpg","https://kerrits.com/cdn/shop/files/ICe-Fil-Long-Sleeve-Black_57b36ad5-151a-4571-9f8a-0c730ccddf29.jpg?v=1704400320s"],["crna","bez","plava"],{
+            materijal: 'Pamuk',
+            težina: '200g',
+            održavanje: 'Pranje na 30°C, ne koristiti sušilicu.',
+          }), 
     new Proizvod(2, "Levi's 501 traperice", 110, ['S', 'M', 'L'],"visoke i rastezljive",["https://lsco.scene7.com/is/image/lsco/005010134-alt1-pdp-ld?$qv_desktop$",
         "https://lsco.scene7.com/is/image/lsco/596920033-alt2-pdp-lse?fmt=jpeg&qlt=70&resMode=sharp2&fit=crop,1&op_usm=0.6,0.6,8&wid=2000&hei=1840","https://lscoecomm.scene7.com/is/image/lscoecomm/STRAIGHT%20JEANS-1?fmt=jpeg&qlt=70&resMode=sharp2&fit=crop,1&op_usm=0.6,0.6,8&wid=1200&hei=1500"
         ,"https://www.realmenrealstyle.com/wp-content/uploads/2024/01/Levis-501-Jeans-%E2%80%93-A-Mans-Style-Guide.jpg"
-    ]),
+    ],["crna","bijela","plava"],{
+        materijal: 'Poliester',
+        težina: '600g',
+        održavanje: 'Ručno pranje, ne glačati.',
+      }),
     new Proizvod(3, 'Zimska kapa', 40, 'onesize',"vunena kapa ",["https://cdn.prod.website-files.com/5b36a2c9df51e7d9e3f9291f/5c1a7eb9f264d668694c55e2_sVE5QwaxmLjB5W7SAcZvxEDozDGBhFinqKrDv8wXO7SbOlZWcicP0ThwLqAi13enlgh9o_v1sNuSBo6e5UITDzZYlfHmxDHKZUY799aHbAhuHSTScXGnAo7F92487-mzqbDSxZk_.jpeg",
         "https://m.media-amazon.com/images/I/71ZJVictizL._AC_SX679_.jpg","https://m.media-amazon.com/images/I/81F5PbgsNoS._AC_UY1000_.jpg","https://m.media-amazon.com/images/I/9160FBtxGoL._AC_SY741_.jpg"
     ]),
