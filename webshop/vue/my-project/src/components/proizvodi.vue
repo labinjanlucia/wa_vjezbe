@@ -14,7 +14,7 @@ onMounted(async () => {
 });
 
 const goToDetails = (id) => {
-  window.location.href = `/proizvodi/${id}`;
+  window.location.href = `/proizvod/${id}`;
 };
 </script>
 

@@ -14,7 +14,7 @@ class Proizvod {
     const proizvodi = [
     new Proizvod(1, 'Obična crna majica', 80, ['XS', 'S', 'M', 'L'],"majca od 100% pamuka",[,
         "https://kerrits.com/cdn/shop/files/ICe-Fil-Long-Sleeve-Black_57b36ad5-151a-4571-9f8a-0c730ccddf29.jpg?v=1704400320","https://www.willowequestrian.com/cdn/shop/products/image_1cc0452e-974f-4a8b-aa6a-c108e74960b7.jpg?v=1720567334&width=960",
-        "https://media.fundis.net/media/image/32/b3/97/equestrian-stockholm_damenshirt_black-gold.jpg","https://kerrits.com/cdn/shop/files/ICe-Fil-Long-Sleeve-Black_57b36ad5-151a-4571-9f8a-0c730ccddf29.jpg?v=1704400320s"],["crna","bez","plava"],{
+        "https://media.fundis.net/media/image/32/b3/97/equestrian-stockholm_damenshirt_black-gold.jpg","https://kerrits.com/cdn/shop/files/ICe-Fil-Long-Sleeve-Black_57b36ad5-151a-4571-9f8a-0c730ccddf29.jpg?v=1704400320s"],["black","purple","white"],{
             materijal: 'Pamuk',
             težina: '200g',
             održavanje: 'Pranje na 30°C, ne koristiti sušilicu.',
@@ -22,7 +22,7 @@ class Proizvod {
     new Proizvod(2, "Levi's 501 traperice", 110, ['S', 'M', 'L'],"visoke i rastezljive",["https://lsco.scene7.com/is/image/lsco/005010134-alt1-pdp-ld?$qv_desktop$",
         "https://lsco.scene7.com/is/image/lsco/596920033-alt2-pdp-lse?fmt=jpeg&qlt=70&resMode=sharp2&fit=crop,1&op_usm=0.6,0.6,8&wid=2000&hei=1840","https://lscoecomm.scene7.com/is/image/lscoecomm/STRAIGHT%20JEANS-1?fmt=jpeg&qlt=70&resMode=sharp2&fit=crop,1&op_usm=0.6,0.6,8&wid=1200&hei=1500"
         ,"https://www.realmenrealstyle.com/wp-content/uploads/2024/01/Levis-501-Jeans-%E2%80%93-A-Mans-Style-Guide.jpg"
-    ],["crna","bijela","plava"],{
+    ],["black","blue"],{
         materijal: 'Poliester',
         težina: '600g',
         održavanje: 'Ručno pranje, ne glačati.',

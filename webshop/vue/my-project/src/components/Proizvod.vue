@@ -131,11 +131,11 @@ proizvod.naziv }}</h1></div>
               <h3 class="text-sm font-medium text-gray-900">Dostupne Boje</h3>
               <div class="mt-2 flex items-center space-x-3">
                 <span
-                  v-for="(boje, index) in proizvod.boje"
+                  v-for="(boja, index) in proizvod.boje"
                   :key="index"
                   class="h-6 w-6 rounded-full border border-gray-300"
-                  :style="{ backgroundColor: boje.toLowerCase() }"
-                  :title="boje"
+                  :style="{ backgroundColor: boja.toLowerCase() }"
+                  :title="boja"
                 ></span>
               </div>
             </div>
