@@ -1,0 +1,15 @@
+{
+  "name": "zadaca_4",
+  "version": "1.0.0",
+  "description": "samostalni zadatak za vjezbu 4",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "author": "Lucia Labinjan",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.1"
+  }
+}

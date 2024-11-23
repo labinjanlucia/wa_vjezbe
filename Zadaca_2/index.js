@@ -2,10 +2,9 @@ import express from 'express';
 const app=express();
 const PORT = 3001;
 app.use(express.json());
-import nekretnineRouter from './routes/nekretnine.js';
-import ponudeRouter from './routes/ponude.js';
-app.use(nekretnineRouter);
-app.use(ponudeRouter)
+import zaposleniciRouter from './routes/zaposlenici.js';
+app.use(zaposleniciRouter);
+
 
 app.listen(PORT, error => {
     if (error) {
