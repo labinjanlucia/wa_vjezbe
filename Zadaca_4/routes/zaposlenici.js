@@ -4,10 +4,11 @@ import path from 'path';
 
 const router = express.Router();
 
-// Path to the JSON file
+
 const zaposleniciFilePath = path.join('data', 'zaposlenici.json');
 
-const  read_zaposlenici_from_file = async () => {
+
+const read_zaposlenici_from_file = async () => {
     try {
         const data = await fs.readFile(zaposleniciFilePath, 'utf8');
         return JSON.parse(data);
@@ -29,10 +30,45 @@ const write_zaposlenici_u_file = async (zaposlenici) => {
 
 
 router.get('/', async (req, res) => {
+    const { sortiraj_po_godinama, pozicija, godine_staza_min, godine_staza_max } = req.query;
+
     try {
-        const zaposlenici = await  read_zaposlenici_from_file()
+        
+        let zaposlenici = await read_zaposlenici_from_file();
+
+        
+        if (sortiraj_po_godinama) {
+            if (sortiraj_po_godinama === 'uzlazno') {
+                zaposlenici = zaposlenici.sort((a, b) => a.godine_staza - b.godine_staza);
+            } else if (sortiraj_po_godinama === 'silazno') {
+                zaposlenici = zaposlenici.sort((a, b) => b.godine_staza - a.godine_staza);
+            }
+        }
+
+        
+        if (pozicija) {
+            zaposlenici = zaposlenici.filter(z => z.pozicija === pozicija);
+        }
+
+    
+        if (godine_staza_min) {
+            const minYears = parseInt(godine_staza_min, 10);
+            if (!isNaN(minYears)) {
+                zaposlenici = zaposlenici.filter(z => z.godine_staza >= minYears);
+            }
+        }
+
+        
+        if (godine_staza_max) {
+            const maxYears = parseInt(godine_staza_max, 10);
+            if (!isNaN(maxYears)) {
+                zaposlenici = zaposlenici.filter(z => z.godine_staza <= maxYears);
+            }
+        }
+
         res.status(200).json(zaposlenici);
     } catch (error) {
+        console.error('Greška prilikom čitanja podataka:', error);
         res.status(500).send('Greška prilikom čitanja podataka.');
     }
 });
@@ -45,7 +81,7 @@ router.get('/:id', async (req, res) => {
     }
 
     try {
-        const zaposlenici = await  read_zaposlenici_from_file();
+        const zaposlenici = await read_zaposlenici_from_file();
         const zaposlenik = zaposlenici.find(z => z.id === id_req);
 
         if (zaposlenik) {
@@ -57,10 +93,12 @@ router.get('/:id', async (req, res) => {
         res.status(500).send('Greška prilikom čitanja podataka.');
     }
 });
+
+
 router.post('/', async (req, res) => {
     const { id, ime, prezime, godine_staza, pozicija } = req.body;
 
-    
+
     if (!id || !ime || !prezime || !godine_staza || !pozicija) {
         return res.status(400).send('Svi podaci su obavezni.');
     }
@@ -75,18 +113,14 @@ router.post('/', async (req, res) => {
     }
 
     try {
-    
         const zaposlenici = await read_zaposlenici_from_file();
 
-        
         if (zaposlenici.some(zaposlenik => zaposlenik.id === id)) {
             return res.status(400).send('Zaposlenik s tim ID-em već postoji.');
         }
 
-        
         const novi_zaposlenik = { id, ime, prezime, godine_staza, pozicija };
 
-        
         zaposlenici.push(novi_zaposlenik);
         await write_zaposlenici_u_file(zaposlenici);
 
@@ -99,6 +133,7 @@ router.post('/', async (req, res) => {
 });
 
 export default router;
+
 
 
   
